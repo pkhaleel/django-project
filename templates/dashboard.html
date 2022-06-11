@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h4>Hello,{{user.first_name}}</h4>
+<br />
+
+<a href="logout" class="btn btn-success">logout</a>
+
+{% endif %}
+
+<div class="row">
+
+    <div class="col-3">
+
+        <h2 class="text text-success">Add Student</h2>
+
+        <!-- <button class="btn btn-success btn-lg">Add</button> -->
+
+        <form action="add" method="post">
+
+            {% csrf_token %}
+
+            <label>Book Name</label>
+            {{form.book_name}}
+            <br>
+            <br>
+            <label>Author</label><br>
+            {{form.author}}
+            <br>
+            <br>
+            <label>Published by</label>
+            {{form.published}}
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success">ADD</button>
+
+        </form>
+
+    </div>
+    <div class="col-9">
+        <table class="table">
+            <tr>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Published By</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                {% for i in student %}
+                <td>{{i.book_name}}</td>
+                <td>{{i.author}}</td>
+                <td>{{i.published}}</td>
+                <td>
+                    <a href="edit/{{i.id}}" class="btn btn-warning">Edit</a>
+                </td>
+                <td>
+                    <a href="delete/{{i.id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

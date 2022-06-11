@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+  </head>
+  <style>
+      a{
+          margin-left: 25%;
+          margin-top: 5%;
+      }
+  </style>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text text-center alert-info">Welcome to Django CRUD WEB</h1>
+      <h2 class="text text-center alert-danger">A FULLSTACK WEB APP</h2>
+
+      <h5 class="text text-center">Click Below to Register or login</h6>
+
+      <a href="register" class="btn btn-info">Register</a>
+  
+      <a href="login" class="btn btn-info">login</a>
+
+
+    </div>
+
+  </body>
+</html>
+
